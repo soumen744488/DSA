@@ -1,0 +1,26 @@
+public Node removeLast() {
+    // if the length of the linked list is 0, return null
+    if (length == 0) return null;
+
+    // start at the head node
+    Node temp = head;
+    Node pre = head;
+    // iterate through the linked list until the last node is reached
+    while(temp.next != null) {
+        pre = temp;  // keep track of the second-to-last node
+        temp = temp.next;
+    }
+    // set the new tail node to be the second-to-last node
+    tail = pre;
+    // remove the reference to the former tail node
+    tail.next = null;
+    // decrement the length of the linked list
+    length--;
+    // if the linked list is now empty, set head and tail to null
+    if (length == 0) {
+        head = null;
+        tail = null;
+    }
+    // return the removed node
+    return temp;
+}
