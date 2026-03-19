@@ -1,0 +1,14 @@
+public boolean set(int index, int value) {
+    // retrieve the node at the specified index
+    Node temp = get(index);
+
+    // if the index is out of bounds, return false
+    if (temp != null) {
+        // if the node is found, set the value of the node
+        temp.value = value;
+        // return true to indicate that the value was set successfully
+        return true;
+    }
+    // return false if the index is out of bounds
+    return false;
+}
