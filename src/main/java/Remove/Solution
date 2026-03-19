@@ -1,0 +1,23 @@
+// Remove the node at the specified index in the list
+public Node remove(int index) {
+    // Check if the index is out of bounds
+    if (index < 0 || index >= length) return null;
+    // If the index is 0, remove the first node in the list
+    if (index == 0) return removeFirst();
+    // If the index is the last one in the list, remove the last node
+    if (index == length - 1) return removeLast();
+
+    // Get the previous node of the one to be removed
+    Node prev = get(index - 1);
+    // Get the node to be removed
+    Node temp = prev.next;
+
+    // Update the previous node's pointer to skip over the removed node
+    prev.next = temp.next;
+    // Detach the removed node from the list
+    temp.next = null;
+    // Decrease the length of the list
+    length--;
+    // Return the removed node
+    return temp;
+}

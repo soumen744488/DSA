@@ -1,4 +1,4 @@
-package Insert;
+package Remove;
 public class LinkedList {
 
     private Node head;
@@ -136,31 +136,45 @@ public class LinkedList {
         return false;
     }
 
-    // WRITE INSERT METHOD HERE //
+    public boolean insert(int index, int value)  {
+        if (index < 0 || index > length) return false;
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+
+    // WRITE REMOVE METHOD HERE //
     //                          //
     //                          //
     //                          //
     //                          //
     //////////////////////////////
-    public boolean insert (int index, int value){
-        if (index<0 || index > length) return false;
-        if(index ==0){
-            prepend(value);
-            return true;
-        } if(  index==length){
-            append(value);
-            return true;
+    public Node remove(int index){
+        if(index <0 || index >= length) return null;
+        if(index ==0 ){
+            return removeFirst();
         }
-        Node newNode = new Node(value);
-        Node temp = get(index-1);
-        newNode.next = temp.next;
-        temp.next = newNode;
-        length++;
-        return true;
-
-
+        if(index == length-1){
+            return removeLast();
+        }
+        Node prev= get(index-1);
+        Node temp= prev.next;
+        prev = temp.next;
+        temp.next= null;
+        length--;
+        return temp;
     }
 
 }
-
 
