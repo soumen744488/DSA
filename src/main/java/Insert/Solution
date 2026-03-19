@@ -1,0 +1,33 @@
+public boolean insert(int index, int value)  {
+    // Check if the index is valid
+    if (index < 0 || index > length) return false;
+
+    // If the index is 0, insert at the beginning of the list
+    if (index == 0) {
+        prepend(value);
+        return true;
+    }
+
+    // If the index is at the end, insert at the end of the list
+    if (index == length) {
+        append(value);
+        return true;
+    }
+
+    // If the index is in the middle, insert the node
+    // Create the new node
+    Node newNode = new Node(value);
+
+    // Get a pointer to the node at the previous index
+    Node temp = get(index - 1);
+
+    // Insert the new node by updating the next pointers
+    newNode.next = temp.next;
+    temp.next = newNode;
+
+    // Update the length of the list
+    length++;
+
+    // Return true to indicate successful insertion
+    return true;
+}
