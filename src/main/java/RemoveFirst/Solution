@@ -1,0 +1,18 @@
+public Node removeFirst() {
+    // if the length of the linked list is 0, return null
+    if (length == 0) return null;
+    // save a reference to the current head node
+    Node temp = head;
+    // set the new head node to be the next node in the linked list
+    head = head.next;
+    // remove the reference to the former head node
+    temp.next = null;
+    // decrement the length of the linked list
+    length--;
+    // if the linked list is now empty, set tail to null
+    if (length == 0) {
+        tail = null;
+    }
+    // return the removed node
+    return temp;
+}
