@@ -1,0 +1,17 @@
+public void prepend(int value) {
+    // create a new node with the specified value
+    Node newNode = new Node(value);
+    // if the linked list is currently empty
+    if (length == 0) {
+        // set the new node as both the head and tail of the linked list
+        head = newNode;
+        tail = newNode;
+    } else {
+        // set the new node's next reference to the current head node
+        newNode.next = head;
+        // set the new node as the new head node of the linked list
+        head = newNode;
+    }
+    // increment the length of the linked list
+    length++;
+}
