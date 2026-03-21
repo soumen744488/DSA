@@ -1,4 +1,4 @@
-package DoublyLinkedList.Append;
+package DoublyLinkedList.RemoveLast;
 
 public class DoublyLinkedList {
 
@@ -66,25 +66,41 @@ public class DoublyLinkedList {
         length = 0;
     }
 
-	// WRITE APPEND METHOD HERE //
-	//                          //
-	//                          //
-	//                          //
-	//                          //
-	//////////////////////////////
-    public void append(int val){
-        Node newNode = new Node(val);
-        if(length == 0){
-            head= newNode;
-            tail= newNode;
-            length ++;
-        }else{
+    public void append (int value) {
+        Node newNode = new Node(value);
+        if(length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
             tail.next = newNode;
-            newNode.prev= tail;
-            tail= newNode;
-            length++;
+            newNode.prev = tail;
+            tail = newNode;
         }
+        length++;
     }
+
+	// WRITE REMOVELAST METHOD HERE //
+	//                              //
+	//                              //
+	//                              //
+	//                              //
+	//////////////////////////////////
+	public Node removeLast(){
+	    if(length ==0) return null;
+	    Node temp = tail;
+	  if(length==1){
+	           head= null;
+	           tail= null;
+	       }else{
+	       
+	       tail=tail.prev;
+	       tail.next= null;
+	       temp.prev = null;}
+	       length--;
+	       
+	   return temp; 
+	}
+
 }
 
 
