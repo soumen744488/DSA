@@ -1,0 +1,25 @@
+public Node removeFirst() {
+    // If the list is empty, return null
+    if(length == 0) return null;
+
+    // Get the first node
+    Node temp = head;
+
+    if(length == 1) { // If there is only one node in the list
+        head = null;
+        tail = null;
+    } else { // If there are more than one nodes in the list
+        // Set the head to the next node
+        head = head.next;
+        // Set the previous pointer of the new head to null
+        head.prev = null;
+        // Set the next pointer of the removed node to null
+        temp.next = null;
+    }
+
+    // Decrease the length of the list
+    length--;
+
+    // Return the removed node
+    return temp;
+}
