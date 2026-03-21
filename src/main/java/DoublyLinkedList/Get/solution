@@ -1,0 +1,23 @@
+public Node get(int index) {
+    // check if the index is out of bounds, return null if true
+    if (index < 0 || index >= length) return null;
+    // initialize a temporary node with the value of the head
+    Node temp = head;
+    // if the index is in the first half of the list
+    if (index < length/2) {
+        // iterate through the list from the head to the index
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+    } else {
+        // if the index is in the second half of the list
+        // initialize the temporary node with the value of the tail
+        temp = tail;
+        // iterate through the list from the tail to the index
+        for (int i = length - 1; i > index; i--) {
+            temp = temp.prev;
+        }
+    }
+    // return the node at the given index
+    return temp;
+}
