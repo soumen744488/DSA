@@ -1,0 +1,11 @@
+public boolean set(int index, int value) {
+    // Get the node at the specified index
+    Node temp = get(index);
+    // If the node exists, set its value to the given value and return true
+    if(temp != null) {
+        temp.value = value;
+        return true;
+    }
+    // If the node does not exist, return false
+    return false;
+}
