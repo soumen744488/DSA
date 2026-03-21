@@ -1,0 +1,27 @@
+public Node remove(int index) {
+    // Check if index is out of range.
+    if(index < 0 || index >= length) return null;
+
+    // If index is the first element, remove it.
+    if(index == 0) return removeFirst();
+
+    // If index is the last element, remove it.
+    if(index == length - 1) return removeLast();
+
+    // Get the node to remove.
+    Node temp = get(index);
+
+    // Update the prev and next pointers to remove the node from the linked list.
+    temp.next.prev = temp.prev;
+    temp.prev.next = temp.next;
+
+    // Set the next and prev pointers of the removed node to null.
+    temp.next = null;
+    temp.prev = null;
+
+    // Decrement the length of the linked list.
+    length--;
+
+    // Return the removed node.
+    return temp;
+}
