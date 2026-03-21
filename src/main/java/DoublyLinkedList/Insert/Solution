@@ -1,0 +1,40 @@
+public boolean insert(int index, int value) {
+
+    // Return false if the index is out of range
+    if(index < 0 || index > length) return false;
+
+    // If index is 0, prepend the new value to the list
+    if(index == 0) {
+        prepend(value);
+        return true;
+    }
+
+    // If index is equal to length, append the new value to the list
+    if(index == length) {
+        append(value);
+        return true;
+    }
+
+    // Otherwise, create a new node with the given value
+    Node newNode = new Node(value);
+
+    // Get the node before the specified index
+    Node before = get(index - 1);
+
+    // Get the node after the specified index
+    Node after = before.next;
+
+    // Set the new node's previous and next pointers to the before and after nodes
+    newNode.prev = before;
+    newNode.next = after;
+
+    // Update the next pointer of the before node and the previous pointer of the after node to point to the new node
+    before.next = newNode;
+    after.prev = newNode;
+
+    // Increment the length of the linked list
+    length++;
+
+    // Return true to indicate that the value was successfully inserted
+    return true;
+}
