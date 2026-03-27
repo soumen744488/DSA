@@ -1,0 +1,16 @@
+
+public void push(int value) {
+    // Create a new node with the given value
+    Node newNode = new Node(value);
+    // If the stack is empty, set the new node as the top
+    if(height == 0) {
+        top = newNode;
+    } else {
+        // Otherwise, set the next node of the new node as the current top node,
+        // and then set the new node as the new top node
+        newNode.next = top;
+        top = newNode;
+    }
+    // Increase the height of the stack by 1
+    height++;
+}
