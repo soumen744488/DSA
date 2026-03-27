@@ -1,4 +1,4 @@
-package Stack.pop;
+package Stack_Queue.Stack_pop;
 
 // package Pop;
 

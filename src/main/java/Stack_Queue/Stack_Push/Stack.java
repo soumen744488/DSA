@@ -1,4 +1,4 @@
-package Stack.Push;
+package Stack_Queue.Stack_Push;
 
 public class Stack {
 

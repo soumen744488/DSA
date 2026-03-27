@@ -1,4 +1,4 @@
-package Stack.Constructor;
+package Stack_Queue.Stack_Constructor;
 
 public class Main {
 
